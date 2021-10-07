@@ -12,13 +12,13 @@ function createContextMenus() {
 
 // インストール時
 chrome.runtime.onInstalled.addListener(function () {
-  createContextMenus();
+  //createContextMenus();
 });
 
 // コンテクストメニュークリック時
-chrome.contextMenus.onClicked.addListener(function () {
-  sendContextMessage();
-});
+//chrome.contextMenus.onClicked.addListener(function () {
+//  sendContextMessage();
+//});
 
 function sendContextMessage() {
   chrome.tabs.query({ active: true }, (result) => {
