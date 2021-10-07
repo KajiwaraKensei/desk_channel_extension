@@ -1,0 +1,27 @@
+{
+  "name": "loco",
+  "version": "1.0",
+  "description": "tabbed sharing",
+  "permissions": [],
+  "background": {
+    "scripts": [
+      "./dist/background/script.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "./dist/popup/index.html",
+    "default_icon": {
+      "32": "./images/notepad.png"
+    }
+  },
+ "icons": {
+    "48": "./images/notepad.png"
+  },
+  "content_scripts": [{
+      "matches": ["https://desk.channel.io/*" ],
+      "js": ["./dist/content/script.js"],
+      "css": ["./dist/content/style.css"]
+  }],
+  "manifest_version": 2
+}
