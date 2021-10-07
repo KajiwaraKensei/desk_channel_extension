@@ -20,6 +20,7 @@ chrome.runtime.onInstalled.addListener(function () {
 //  sendContextMessage();
 //});
 
+// メッセージを開いているタブに送る（不要）
 function sendContextMessage() {
   chrome.tabs.query({ active: true }, (result) => {
     chrome.tabs.sendMessage(result[0].id, {

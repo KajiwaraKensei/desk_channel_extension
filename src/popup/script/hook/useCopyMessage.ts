@@ -3,7 +3,7 @@ import { browser } from "webextension-polyfill-ts";
 import { useChromeMessage } from "./useChromeMessage";
 
 export const useCopyMessage = () => {
-  const { message } = useChromeMessage();
+  const { message } = useChromeMessage(); // chromeのメッセージ
 
   const [loading, setLoading] = React.useState(false); // 取得中
   const [text, setTxt] = useState(""); // 取得したテキスト
@@ -22,12 +22,15 @@ export const useCopyMessage = () => {
   // chromeのメッセージ監視
   React.useEffect(() => {
     switch (message.type) {
+      // メッセージ受信
       case "copy_txt_p":
         setTxt(message.txt);
         setErr("");
         setLoading(false);
         navigator.clipboard.writeText(message.txt);
         break;
+
+      // メッセージ取得失敗
       case "copy_txt_p_e":
         setErr(String(message.error));
         setLoading(false);

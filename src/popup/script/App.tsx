@@ -9,10 +9,13 @@ type Props = {};
 
 const Component: React.FC<Props> = (props) => {
   const { fn, text, loading } = useCopyMessage();
+
+  // 読み込み時にコピーを実行
   React.useEffect(() => {
     fn.get();
   }, []);
 
+  // エラーの時表示
   const errDom = (
     <div className="error">
       <div>
@@ -21,6 +24,7 @@ const Component: React.FC<Props> = (props) => {
       <div>{loading.err}</div>
     </div>
   );
+
   return (
     <div {...props}>
       {loading.state ? <div>取得中...</div> : ""}
@@ -34,7 +38,7 @@ const Component: React.FC<Props> = (props) => {
 };
 
 // ______________________________________________________
-//
+// スタイル
 export default styled(Component)`
   min-width: 10rem;
   color: #eee;
