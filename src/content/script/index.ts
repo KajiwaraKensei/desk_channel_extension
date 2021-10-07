@@ -1,17 +1,19 @@
 // ______________________________________________________
 // root
 import { browser } from "webextension-polyfill-ts";
-
 import { copyAll } from "./copyAll";
-import { blockImage } from "./blockImage";
 import "../styles.css";
-import { download } from "./excelDownload";
+
+//import { blockImage } from "./blockImage";
+//import { download } from "./excelDownload";
 
 // backgroundからのメッセージを受け取る
 browser.runtime.onMessage.addListener((message) => {
   const action = {
     copyAll: () => {
-      download();
+      //download(); // チャンネルのメッセージを通信でダウンロード
+
+      // チャンネルのテキストを画面から取得
       copyAll()
         .then((text) => {
           browser.runtime.sendMessage({ type: "copy_txt_p", txt: text });
@@ -26,4 +28,4 @@ browser.runtime.onMessage.addListener((message) => {
 });
 
 // 画像を無効化
-blockImage();
+//blockImage();
