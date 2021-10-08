@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "npm run fmt && webpack",
-    "watch": "webpack -w",
+    "dev": "webpack -w",
     "fmt": "prettier --write \"src/**/*.**s*\""
   },
   "devDependencies": {
