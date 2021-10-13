@@ -43,7 +43,7 @@ function disableImage() {
 
   // スタイルタグを作成　画像を無効化
   const styleElement = document.createElement("style");
-  styleElement.innerText = `.${targetClassName} > div > div:nth-child(2) img { opacity: 0; }`;
+  styleElement.innerText = `.${targetClassName} > div > div:nth-child(2) img { filter: blur(12px);}`;
   document.getElementsByTagName("HEAD").item(0).appendChild(styleElement);
 }
 

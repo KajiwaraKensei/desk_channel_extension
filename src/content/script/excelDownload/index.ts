@@ -27,16 +27,11 @@ export async function download() {
 //
 function createExcelData(data: any) {
   // ヘッダー
-  const array1 = [["personType", "personId", "createdAt", "plainText"]];
+  const array1 = [];
 
   // エクセルデータ作成
-  data.messages.forEach(({ personType, personId, createdAt, plainText }) => {
-    array1.push([
-      personType,
-      personId,
-      new Date(createdAt).toLocaleString(),
-      plainText,
-    ]);
+  data.messages.forEach(({ personType, createdAt, plainText }) => {
+    array1.push([personType, new Date(createdAt).toLocaleString(), plainText]);
   });
 
   // ArrayをWorkbookに変換する
