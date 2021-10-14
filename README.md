@@ -7,12 +7,12 @@
 1. [chrome://extensions/](chrome://extensions/) に移動。
 2. 右上のデベロッパーモードをオンにする。
 3. 左上の方にあるパッケージされていない拡張期のを読み込むを選択。
-4. copy_text のフォルダを選択。
+4. desk_channel_extension のフォルダを選択。
   
 
 ## 環境構築
    ```bash
-      cd copy_text
+      cd desk_channel_extension
       npm install
    ```
 ## 更新
@@ -39,3 +39,14 @@
 ### *webpack.config.js*
    webpack の設定ファイル  
    ここで設定した内容distでフォルダが生成される
+***
+### *popup*
+  ブラウザの右上のアイコンをクリックされた時に実行される
+
+### *background*
+  ブラウザの裏で実行される
+
+### *popup*
+  ページ内で実行される
+  サイトの情報はここでしか取得できない
+  
