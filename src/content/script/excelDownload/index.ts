@@ -52,8 +52,8 @@ function aoa_to_workbook(data, opts?: XLSX.AOA2SheetOpts) {
 
 // SheetをWorkbookに追加する
 function sheet_to_workbook(sheet, opts) {
-  var n = opts && opts.sheet ? opts.sheet : "Sheet1";
-  var sheets = {};
+  const n = opts && opts.sheet ? opts.sheet : "Sheet1";
+  let sheets = {};
   sheets[n] = sheet;
   return { SheetNames: [n], Sheets: sheets };
 }
@@ -63,8 +63,8 @@ function sheet_to_workbook(sheet, opts) {
 
 // stringをArrayBufferに変換する
 function s2ab(s) {
-  var buf = new ArrayBuffer(s.length);
-  var view = new Uint8Array(buf);
-  for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xff;
+  const buf = new ArrayBuffer(s.length);
+  let view = new Uint8Array(buf);
+  for (let i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xff;
   return buf;
 }
