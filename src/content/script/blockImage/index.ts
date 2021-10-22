@@ -41,11 +41,6 @@ function disableImage() {
   .${targetClassName} > div > div:nth-child(2) img{ 
     display: none;
   }
-  .${targetClassName} div[class*="Image__wrapper"] {
-    display: none !important;
-    pointer-events: none;
-  }
-
   `;
   document.getElementsByTagName("HEAD").item(0).appendChild(styleElement);
 }

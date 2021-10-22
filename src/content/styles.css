@@ -15,3 +15,8 @@ div[class*="ImageGallery__head"] {
   pointer-events: none;
   display: none !important;
 }
+
+div[class*="Image__wrapper"] {
+  display: none !important;
+  pointer-events: none;
+}
