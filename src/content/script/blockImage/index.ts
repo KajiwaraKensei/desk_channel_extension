@@ -3,7 +3,6 @@ import conf from "~/conf";
 const blockImageConf = conf.blockImage;
 /**
  * トークの画像を非表示に
- * @param nest ループのカウント
  */
 export async function blockImage() {
   await waitLoad();
@@ -15,7 +14,6 @@ export async function blockImage() {
  * @param nest ループのカウント
  */
 async function waitLoad(nest: number = 0) {
-  console.log(blockImageConf.query);
   if (document.querySelector(blockImageConf.query)) {
     return;
   }
@@ -28,22 +26,27 @@ async function waitLoad(nest: number = 0) {
  * 画像を無効化
  */
 function disableImage() {
-  console.log(blockImageConf.query, 1);
-
   // リストのクラス名を取得
   const targetClassName = getList(document.querySelector(blockImageConf.query));
-  console.log(targetClassName);
 
   // wrapの単語が含まれていなければもう一度
   if (targetClassName.indexOf("wrap") < 0) {
     setTimeout(disableImage, blockImageConf.timeout);
     return;
   }
-  console.log("create!!!!");
 
   // スタイルタグを作成　画像を無効化
   const styleElement = document.createElement("style");
-  styleElement.innerText = `.${targetClassName} > div > div:nth-child(2) img { filter: blur(12px);}`;
+  styleElement.innerText = `
+  .${targetClassName} > div > div:nth-child(2) img{ 
+    display: none;
+  }
+  .${targetClassName} div[class*="Image__wrapper"] {
+    display: none !important;
+    pointer-events: none;
+  }
+
+  `;
   document.getElementsByTagName("HEAD").item(0).appendChild(styleElement);
 }
 

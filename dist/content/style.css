@@ -1,4 +1,18 @@
 #rotate0 img {
-  filter: blur(12px);
+  display: none;
+}
+
+.sc-fzomME {
+  display: none;
+}
+
+div[class*="ChatFileList"] {
+  pointer-events: none;
+  display: none;
+}
+
+div[class*="ImageGallery__head"] {
+  pointer-events: none;
+  display: none !important;
 }
 

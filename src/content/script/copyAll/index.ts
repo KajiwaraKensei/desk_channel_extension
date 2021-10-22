@@ -23,7 +23,7 @@ export default copyAll;
  */
 function getScrollDom(target: HTMLElement, nest?: number): HTMLElement {
   // 引数チェック
-  if (!target || copyConf.nest > 15) {
+  if (!target || nest > copyConf.nest) {
     throw "要素が見つかりません";
   }
 
