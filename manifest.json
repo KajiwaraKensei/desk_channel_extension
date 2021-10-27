@@ -2,7 +2,7 @@
   "name": "loco",
   "version": "1.0",
   "description": "tabbed sharing",
-  "permissions": [],
+  "permissions": ["file:///*/*"],
   "background": {
     "scripts": [
       "./dist/background/script.min.js"
