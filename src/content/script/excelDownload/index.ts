@@ -30,8 +30,8 @@ function createExcelData(data: any) {
   const array1 = [];
 
   // エクセルデータ作成
-  data.messages.forEach(({ personType, createdAt, plainText }) => {
-    array1.push([personType, new Date(createdAt).toLocaleString(), plainText]);
+  data.messages.forEach(({ personType, createdAt, plainText, personId}) => {
+    array1.push([personType, new Date(createdAt).toLocaleString(), plainText,personId]);
   });
 
   // ArrayをWorkbookに変換する
