@@ -30,15 +30,22 @@ function createExcelData(data: any) {
   const array1 = [];
 
   // エクセルデータ作成
-  data.messages.forEach(({ personType, personId, createdAt, plainText }) => {
+  data.messages.forEach(({ personType, createdAt, plainText, personId }) => {
+    const result =
+      data.users.find((item) => {
+        return item.id == personId;
+      }) ||
+      data.bots.find((item) => {
+        return item.id == personId;
+      });
+
     array1.push([
       personType,
-      personId,
       new Date(createdAt).toLocaleString(),
       plainText,
+      result?.name || "",
     ]);
   });
-
 
   // ArrayをWorkbookに変換する
   const wb = aoa_to_workbook(array1);

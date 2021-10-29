@@ -2,10 +2,6 @@
   display: none;
 }
 
-.sc-fzomME {
-  display: none;
-}
-
 div[class*="ChatFileList"] {
   pointer-events: none;
   display: none;
