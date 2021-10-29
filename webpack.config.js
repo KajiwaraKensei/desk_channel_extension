@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "production",
@@ -36,6 +38,7 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".json"],
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       chunks: ["popup"],
       template: "./src/popup/index.html",
@@ -46,4 +49,9 @@ module.exports = {
     }),
   ],
   target: ["web", "es5"],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };
