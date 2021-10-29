@@ -49,9 +49,4 @@ module.exports = {
     }),
   ],
   target: ["web", "es5"],
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
 };
